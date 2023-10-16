@@ -25,6 +25,14 @@ function App() {
       "descricao": descriptionEl.value
     }
 
+    if(data.descricao == "" || data.nome == ""){
+      const nullValues = []
+      data.nome ? null : nullValues.push('Nome')
+      data.descricao ? null : nullValues.push('Descrição')
+      alert(`Por favor preenha os campos: [ ${nullValues.join(', ')} ]`)
+      return
+    }
+
     if(data.id){
       axiosClient.put(`/contas/${data.id}`, JSON.stringify(data))
       .then(() => {
