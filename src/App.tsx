@@ -29,11 +29,11 @@ function App() {
   return (
     <>
       <form>
-        <fieldset>
+        <fieldset className='field-cep'>
           <label htmlFor='cep'>Cep</label>
-          <input type='text' id='cep' name='cep' onBlur={(e) => {handleSearch(e.target.value)}}/>
+          <input className='input-cep' type='text' id='cep' name='cep' onBlur={(e) => {handleSearch(e.target.value)}}/>
         </fieldset>
-        <span>Resultado: </span>
+        <span>Resultado: {address}</span>
       </form>
     </>
   )
