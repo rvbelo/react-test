@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+import { Axios } from 'axios'
 import './App.css'
 
+const axiosClient = new Axios({
+  baseURL: 'https://viacep.com.br/ws/',
+  headers: {
+    "Accept": 'application/json',
+    "Content-Type": 'application/json'
+  }
+})
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [ address, setAddress ] = useState('')
+
+  const handleSearch = (cep: string) => {
+    if(cep){
+      axiosClient.get(`${cep}/json/`)
+        .then(response => {
+          setAddress(response.data)
+        })
+    }
+  }
+
+  useEffect(()=>{
+    console.log(address)
+  }, [address])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <form>
+        <fieldset>
+          <label htmlFor='cep'>Cep</label>
+          <input type='text' id='cep' name='cep' onBlur={(e) => {handleSearch(e.target.value)}}/>
+        </fieldset>
+        <span>Resultado: </span>
+      </form>
     </>
   )
 }
