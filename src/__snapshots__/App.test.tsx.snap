@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Form page must be rendered correctly 1`] = `
+<form>
+  <fieldset
+    className="field-cep"
+  >
+    <label
+      htmlFor="cep"
+    >
+      Cep
+    </label>
+    <input
+      className="input-cep"
+      id="cep"
+      name="cep"
+      onBlur={[Function]}
+      type="text"
+    />
+  </fieldset>
+  <span>
+    Resultado: 
+  </span>
+</form>
+`;
+
+exports[`Form page must be rendered correctly 2`] = `
+<form>
+  <fieldset
+    className="field-cep"
+  >
+    <label
+      htmlFor="cep"
+    >
+      Cep
+    </label>
+    <input
+      className="input-cep"
+      id="cep"
+      name="cep"
+      onBlur={[Function]}
+      type="text"
+    />
+  </fieldset>
+  <span>
+    Resultado: 
+  </span>
+</form>
+`;
+
+exports[`Form page must be rendered correctly 3`] = `
+<form>
+  <fieldset
+    className="field-cep"
+  >
+    <label
+      htmlFor="cep"
+    >
+      Cep
+    </label>
+    <input
+      className="input-cep"
+      id="cep"
+      name="cep"
+      onBlur={[Function]}
+      type="text"
+    />
+  </fieldset>
+  <span>
+    Resultado: 
+  </span>
+</form>
+`;
